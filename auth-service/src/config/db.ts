@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://mongo:DXHKzVkjoSkqKCxbwJWPRJSAgPAeeJZV@trolley.proxy.rlwy.net:38081/test";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://mongodb:27017/concert";
 
 // MongoDB connection options
 const mongoOptions: mongoose.ConnectOptions = {

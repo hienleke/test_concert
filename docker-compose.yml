@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # MongoDB service
   mongodb:
-    image: mongo:latest
+    image: mongo:latest 
     ports:
       - "27017:27017"
     volumes:
@@ -26,6 +26,8 @@ services:
     build:
       context: ./auth-service
       dockerfile: Dockerfile
+    volumes:
+      - ../shared:/app/shared
     ports:
       - "3001:3001"
     environment:
@@ -45,6 +47,8 @@ services:
     build:
       context: ./concert-service
       dockerfile: Dockerfile
+    volumes:
+      - ../shared:/app/shared
     ports:
       - "3002:3002"
     environment:
@@ -62,6 +66,8 @@ services:
     build:
       context: ./booking-service
       dockerfile: Dockerfile
+    volumes:
+      - ../shared:/app/shared
     ports:
       - "3003:3003"
     environment:
@@ -102,10 +108,72 @@ services:
     networks:
       - concert-network
 
+  # Auth Worker
+  auth-worker:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    volumes:
+      - ../shared:/app/shared
+    command: ["npm", "run", "worker"]
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/concert
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=lekehien5431@gmail.com
+      - PORT=3001
+      - JWT_EXPIRY=86400 
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - concert-network
+
+  # Concert Worker
+  concert-worker:
+    build:
+      context: ./concert-service
+      dockerfile: Dockerfile
+    volumes:
+      - ../shared:/app/shared
+    command: ["npm", "run", "worker"]
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/concert
+      - REDIS_URL=redis://redis:6379
+      - PORT=3002
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - concert-network
+
+  # Booking Worker
+  booking-worker:
+    build:
+      context: ./booking-service
+      dockerfile: Dockerfile
+    volumes:
+      - ../shared:/app/shared
+    command: ["npm", "run", "worker"]
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/concert
+      - REDIS_URL=redis://redis:6379
+      - PORT=3003
+      - JWT_SECRET=lekehien5431@gmail.com
+      - SMTP_HOST=gmail
+      - SMTP_PORT=587
+      - SMTP_SECURE=false
+      - SMTP_USER=lekehien17105431@gmail.com
+      - SMTP_PASS=vkca plld hiuk pxnp
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - concert-network
+
 networks:
   concert-network:
     driver: bridge
 
 volumes:
   mongodb_data:
-  redis_data: 
+  redis_data:

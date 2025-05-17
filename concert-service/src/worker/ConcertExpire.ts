@@ -2,13 +2,13 @@ import { tryCatch, Worker } from "bullmq";
 import { logger, getRedisClient } from "@concert/shared";
 import dotenv from "dotenv";
 import path from "path";
-import concertService from "@/service/concertService";
+import concertService from "../service/concertService";
 
 let concertWorkerInstance: Worker | null = null;
 dotenv.config({ path: path.join(__dirname, "../../.env") });
 
 async function createOrRestartConcertWorker() {
-  logger.info("Start email worker...");
+  logger.info("Start concert expired worker...");
   if (concertWorkerInstance) {
     logger.info("Closing existing concert worker before creating a new one...");
     try {

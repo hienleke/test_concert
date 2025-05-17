@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
+WORKDIR /app/api-gateway
+
 RUN npm run build
 
 EXPOSE 3000

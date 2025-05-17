@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "worker": "ts-node src/service/emailWorker.ts",
+    "worker": "ts-node src/worker/index.ts",
     "dev": "nodemon src/index.ts",
     "build": "tsc",
     "test": "jest"

@@ -2,20 +2,15 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package files
+# Copy package.json + package-lock.json trong auth-service context
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy source code
-COPY . .
+COPY . ./
 
-# Build TypeScript code
 RUN npm run build
 
-# Expose port
 EXPOSE 3001
 
-# Start the service
-CMD ["npm", "start"] 
+CMD ["npm", "start"]
