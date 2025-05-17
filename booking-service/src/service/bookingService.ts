@@ -19,6 +19,10 @@ export const createBooking = async ({ concertId, seatType, user }: any) => {
   const luaScript = `
     local seatKey = KEYS[1]
     local bookingCount = tonumber(ARGV[1])
+    local ttl = redis.call("TTL", seatKey)
+    if ttl >= 0 and ttl < 10 then
+      return { err = "BOOKING_CLOSED" }
+    end
     local total = tonumber(redis.call("HGET", seatKey, "total"))
     local booked = tonumber(redis.call("HGET", seatKey, "booked"))
     if not total or not booked then

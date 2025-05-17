@@ -33,6 +33,7 @@ services:
       - REDIS_URL=redis://redis:6379
       - JWT_SECRET=lekehien5431@gmail.com
       - PORT=3001
+      - JWT_EXPIRY=86400 
     depends_on:
       - mongodb
       - redis
@@ -67,6 +68,13 @@ services:
       - MONGODB_URI=mongodb://mongodb:27017/concert
       - REDIS_URL=redis://redis:6379
       - PORT=3003
+      - JWT_SECRET=lekehien5431@gmail.com
+      - SMTP_HOST=gmail
+      - SMTP_PORT=587
+      - SMTP_SECURE=false
+      - SMTP_USER=lekehien17105431@gmail.com
+      - SMTP_PASS=vkca plld hiuk pxnp
+      - PORT=3002
     depends_on:
       - mongodb
       - redis

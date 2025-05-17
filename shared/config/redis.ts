@@ -8,7 +8,7 @@ dotenv.config();
 
 const REDIS_URL =
   process.env.REDIS_URL ||
-  "redis://default:yQinoHmX0GSKOBTuZz7Enp4vXUd9NcWg@redis-18609.crce185.ap-seast-1-1.ec2.redns.redis-cloud.com:18609";
+  "redis://redis:6379";
 
 let redisClient: RedisClientType | null = null;
 

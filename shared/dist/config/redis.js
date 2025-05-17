@@ -44,7 +44,7 @@ const redis = __importStar(require("redis"));
 exports.redisClient_lib = redis;
 dotenv_1.default.config();
 const REDIS_URL = process.env.REDIS_URL ||
-    "redis://default:yQinoHmX0GSKOBTuZz7Enp4vXUd9NcWg@redis-18609.crce185.ap-seast-1-1.ec2.redns.redis-cloud.com:18609";
+    "redis://redis:6379";
 let redisClient = null;
 const getRedisClient = async () => {
     if (!redisClient) {

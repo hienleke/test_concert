@@ -17,17 +17,17 @@ The system consists of the following microservices:
    - JWT token generation
    - User profile management
 
-3. **Concert Service** (Port 3002)
+3. **Concert Service** (Port 3003)
    - Concert management
    - Seat type management
    - Ticket availability tracking
-   - Auto-disable bookings for past concerts
+   - Auto-disable bookings for past concerts with redis ttl
 
-4. **Booking Service** (Port 3003)
+4. **Booking Service** (Port 3002)
    - Ticket booking operations
    - Concurrency control using Redis
    - Booking validation
-   - Email confirmation (mock)
+   - Email confirmation 
 
 ## Prerequisites
 
