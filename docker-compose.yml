@@ -1,0 +1,103 @@
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - concert-network
+
+  # Redis service
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - concert-network
+
+  # Auth Service
+  auth-service:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/concert
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=lekehien5431@gmail.com
+      - PORT=3001
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - concert-network
+
+  # Concert Service
+  concert-service:
+    build:
+      context: ./concert-service
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/concert
+      - REDIS_URL=redis://redis:6379
+      - PORT=3002
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - concert-network
+
+  # Booking Service
+  booking-service:
+    build:
+      context: ./booking-service
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/concert
+      - REDIS_URL=redis://redis:6379
+      - PORT=3003
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - concert-network
+
+  # API Gateway
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - REDIS_URL=redis://redis:6379
+      - AUTH_SERVICE_URL=http://auth-service:3001
+      - CONCERT_SERVICE_URL=http://concert-service:3002
+      - BOOKING_SERVICE_URL=http://booking-service:3003
+    depends_on:
+      - auth-service
+      - concert-service
+      - booking-service
+      - redis
+    networks:
+      - concert-network
+
+networks:
+  concert-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+  redis_data: 

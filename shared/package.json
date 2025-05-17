@@ -1,0 +1,27 @@
+{
+  "name": "@concert/shared",
+  "version": "1.0.0",
+  "description": "Shared utilities for microservices",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "redis": "^4.6.12",
+    "log4js": "^6.9.1",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/log4js": "^2.3.5",
+    "@types/redis": "^4.0.11",
+    "typescript": "^5.0.3"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+} 
