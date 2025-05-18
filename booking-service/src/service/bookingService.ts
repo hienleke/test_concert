@@ -87,7 +87,7 @@ export const cancelBooking = async ({ concertId, seatType, user }: any) => {
   if (!booking) {
     throw new Error("Booking not found");
   }
-
+// need  to call pubsub  stream redis  and listren return data delete conert service  in here
   // TODO: Implement HINCRBY to reduce 'booked' count if necessary
   await redisClient.del(key);
 };

@@ -4,7 +4,7 @@ import { Request, Response } from 'express-serve-static-core';
 import morgan from "morgan";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import dotenv from "dotenv";
-import { logger } from "@concert/shared/utils/logger";
+import { logger } from "@concert/shared";
 import { verifyToken } from "./middleware/auth";
 import rateLimit from "express-rate-limit";
 import cors from "cors";
@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100,
+  max: 10000,
 });
 
 app.use(cors());
