@@ -28,6 +28,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../shared:/app/shared
+      - ./auth-service:/app
     ports:
       - "3001:3001"
     environment:
@@ -49,6 +50,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../shared:/app/shared
+      - ./concert-service:/app
     ports:
       - "3002:3002"
     environment:
@@ -68,6 +70,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../shared:/app/shared
+      - ./booking-service:/app
     ports:
       - "3003:3003"
     environment:
@@ -92,6 +95,8 @@ services:
     build:
       context: ./api-gateway
       dockerfile: Dockerfile
+    volumes:
+      - ./api-gateway:/app
     ports:
       - "3000:3000"
     environment:
@@ -115,6 +120,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../shared:/app/shared
+      - ./auth-service:/app
     command: ["npm", "run", "worker"]
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/concert
@@ -135,6 +141,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../shared:/app/shared
+      - ./concert-service:/app
     command: ["npm", "run", "worker"]
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/concert
@@ -153,6 +160,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../shared:/app/shared
+      - ./booking-service:/app
     command: ["npm", "run", "worker"]
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/concert

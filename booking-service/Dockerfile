@@ -2,15 +2,18 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package.json + package-lock.json trong auth-service context
-COPY package*.json ./
+# Copy shared directory first
+COPY shared ./shared
 
+# Then copy package.json and install dependencies
+COPY package*.json ./
 RUN npm install
 
-COPY . ./
+# Copy the rest of the source code
+COPY . .
 
 RUN npm run build
 
 EXPOSE 3002
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

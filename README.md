@@ -51,7 +51,8 @@ The system consists of the following microservices:
    ```
 
 ## API TEST
-   
+   go to post man api folder PostmanAPI
+   Postman import after register and login please add token Bear to authenciation post
 ## Images
 
 ### System design overview

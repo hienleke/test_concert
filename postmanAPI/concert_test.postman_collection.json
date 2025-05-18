@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "885913c8-0a6d-4832-9107-c8297069c4be",
+		"name": "concert_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13342934"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"lekehien5431@gmail.com\",\r\n    \"password\": \"lekehien5431@gmail.com\",\r\n    \"name\": \"name name name\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODI1NmM2ZWI5MTU2ZjYxYjVhOWY0YmUiLCJlbWFpbCI6Imxla2VoaWVuQGV4YW1wbGUuY29tIiwibmFtZSI6Imxla2VoaWVuIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDczMjM2ODQsImV4cCI6MTc0NzQxMDA4NH0.WTUX9SdnIWTCPe7AxgwhGo74uSbSatR5dHmSZRnI-LU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"lekehien@example.com\",\r\n    \"password\": \"123123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODI1NmM2ZWI5MTU2ZjYxYjVhOWY0YmUiLCJlbWFpbCI6Imxla2VoaWVuQGV4YW1wbGUuY29tIiwibmFtZSI6Imxla2VoaWVuIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDczMjM2ODQsImV4cCI6MTc0NzQxMDA4NH0.WTUX9SdnIWTCPe7AxgwhGo74uSbSatR5dHmSZRnI-LU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"lekehien@example.com\",\r\n    \"password\": \"123123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get concerts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODI1NmM2ZWI5MTU2ZjYxYjVhOWY0YmUiLCJlbWFpbCI6Imxla2VoaWVuQGV4YW1wbGUuY29tIiwibmFtZSI6Imxla2VoaWVuIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDc0MTUzMjMsImV4cCI6MTc0NzUwMTcyM30.WgaHo_tIDj9asVxkOgPf0ScYg_l0bFKH3vg9K7_hW4E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"name\": \"Rocking Night Festival\",\r\n        \"date\": \"2025-07-01T19:30:00.000Z\",\r\n        \"location\": \"Sunshine Arena\",\r\n        \"seats\": [\r\n            {\r\n                \"type\": \"VIP\",\r\n                \"total\": 100,\r\n                \"booked\": 60\r\n            },\r\n            {\r\n                \"type\": \"Standard\",\r\n                \"total\": 200,\r\n                \"booked\": 20\r\n            },\r\n            {\r\n                \"type\": \"Economy\",\r\n                \"total\": 300,\r\n                \"booked\": 0\r\n            }\r\n        ],\r\n        \"__v\": 0,\r\n        \"createdAt\": \"2025-05-16T18:21:08.775Z\",\r\n        \"updatedAt\": \"2025-05-17T08:24:00.787Z\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/concert",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"concert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get concerts available",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODI1NmM2ZWI5MTU2ZjYxYjVhOWY0YmUiLCJlbWFpbCI6Imxla2VoaWVuQGV4YW1wbGUuY29tIiwibmFtZSI6Imxla2VoaWVuIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDc0MTUzMjMsImV4cCI6MTc0NzUwMTcyM30.WgaHo_tIDj9asVxkOgPf0ScYg_l0bFKH3vg9K7_hW4E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"name\": \"Rocking Night Festival\",\r\n        \"date\": \"2025-07-01T19:30:00.000Z\",\r\n        \"location\": \"Sunshine Arena\",\r\n        \"seats\": [\r\n            {\r\n                \"type\": \"VIP\",\r\n                \"total\": 100,\r\n                \"booked\": 60\r\n            },\r\n            {\r\n                \"type\": \"Standard\",\r\n                \"total\": 200,\r\n                \"booked\": 20\r\n            },\r\n            {\r\n                \"type\": \"Economy\",\r\n                \"total\": 300,\r\n                \"booked\": 0\r\n            }\r\n        ],\r\n        \"__v\": 0,\r\n        \"createdAt\": \"2025-05-16T18:21:08.775Z\",\r\n        \"updatedAt\": \"2025-05-17T08:24:00.787Z\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/concert/available",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"concert",
+						"available"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create concerts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODI1NmM2ZWI5MTU2ZjYxYjVhOWY0YmUiLCJlbWFpbCI6Imxla2VoaWVuQGV4YW1wbGUuY29tIiwibmFtZSI6Imxla2VoaWVuIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDczMjc0OTEsImV4cCI6MTc0NzQxMzg5MX0.S2DoVMqL3lw-4BbjN_l7rhI_Co5G72gB0H6e_I54yJg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Rocking Night Festival\",\r\n  \"date\": \"2025-07-01T19:30:00.000Z\",\r\n  \"location\": \"Sunshine Arena\",\r\n  \"seats\": [\r\n    {\r\n      \"type\": \"VIP\",\r\n      \"total\": 100,\r\n      \"booked\": 10\r\n    },\r\n    {\r\n      \"type\": \"Standard\",\r\n      \"total\": 200,\r\n      \"booked\": 20\r\n    },\r\n    {\r\n      \"type\": \"Economy\",\r\n      \"total\": 300,\r\n      \"booked\": 0\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/concert",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"concert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create booking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODI3OGM2ODQ0OGE1OWQyNWIxNjcxZGEiLCJlbWFpbCI6Imxla2VoaWVuNTQzMUBnbWFpbC5jb20iLCJuYW1lIjoibGUga2UgaGllbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ3NDIyMzI4LCJleHAiOjE3NDc1MDg3Mjh9.bqKr1ipHfA5ExabZCVxwfWmo7orlwLvjOMvhkn0YkLM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seatType\": \"VIP\",\r\n    \"concertId\":\"6827821442f3c7a04874c05b\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/booking",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"booking"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
