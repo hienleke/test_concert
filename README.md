@@ -52,6 +52,8 @@ The system consists of the following microservices:
    docker compose up 
    ```
 
+## API TEST
+   
 ## Images
 
 ### System design overview
@@ -61,7 +63,7 @@ The system consists of the following microservices:
 ![Booking ticket flow](images/booking-concert-ticket-flow.png)
 
 ### Email confirmation
-![Email confirmation](images/Email-confirmation.png)
+![Email confirmation](images/email_confirmation.png)
 
 
 ## Development

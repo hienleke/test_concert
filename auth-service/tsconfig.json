@@ -13,9 +13,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-       "@concert/shared": ["shared"]
+      "@concert/shared": ["shared/dist"],
+      "@concert/shared/*": ["shared/dist/*"]
     }
   },
   "include": ["src/**/*", "src/event/redisService.ts"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules"]
 } 

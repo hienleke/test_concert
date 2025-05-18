@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken';
 import { User, IUser } from '../models/User';
-import { redisService } from '../event/redisService';
 import { logger } from '@concert/shared';
 import { redisClient_lib, getRedisClient } from '@concert/shared'
 import { ITokenPayload, IAuthResponse, ILoginResponse } from '../types/auth.types'
