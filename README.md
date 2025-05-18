@@ -42,12 +42,10 @@ The system consists of the following microservices:
    ```
 
 2. Modify_ENV in docker-compose.yml:
-   env file mail  : With email password using app password not with your pass word (test success gmail)
+   for password email : with gmail using app-password not regular password
 
 
-3. Create `.env` files in each service directory with appropriate configurations.
-
-4. Start the services using Docker Compose:
+3. Start the services using Docker Compose:
    ```bash
    docker compose up 
    ```
@@ -63,28 +61,10 @@ The system consists of the following microservices:
 ![Booking ticket flow](images/booking-concert-ticket-flow.png)
 
 ### Email confirmation
-![Email confirmation](images/email_confirmation.png)
+![Email confirmation](images/email_confirmation.jpg)
 
 
 ## Development
-
-## Features
-
-- JWT-based authentication
-- Distributed locking with Redis
-- MongoDB for data persistence
-- Docker containerization
-- Load testing support
-- Mock email notifications
-- Auto-disable bookings for past concerts
-
-## Security
-
-- JWT-based authentication
-- Helmet for security headers
-- Input validation
-- Secure password hashing
-- Environment variable configuration
 
 
 ## License
