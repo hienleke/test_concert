@@ -65,7 +65,12 @@ The system consists of the following microservices:
 ![Email confirmation](images/email_confirmation.jpg)
 
 
-## Development
+## Task bonus Done 
+   Simulated email confirmation.
+	Use microservices architecture:
+	At least: Auth, Concert, and Booking Services.
+	Automatically disable bookings once the concert starts. (before 10s of the concert start call bull mq save to database )
+
 
 
 ## License
