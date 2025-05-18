@@ -41,17 +41,36 @@ The system consists of the following microservices:
    cd test_concert
    ```
 
-2. Modify_ENV in docker-compose.yml:
+2. Modify_ENV in each service have .env.example  and change file to .env file:
    for password email : with gmail using app-password not regular password
 
 
-3. Start the services using Docker Compose:
+3. build core module redis and shared module :
    ```bash
-   docker compose up 
+   cd shared
+   npm run build
+   ```
+
+4. run each service :
+   ```bash
+   cd auth-service
+   npm i
+   npm run dev
+   npm run worker
+   cd ../booking-service
+   npm i
+   npm run dev
+   npm run worker
+   cd ../concert-service
+   npm i
+   npm run dev
+   npm run worker
+   cd ../api-gateway
+   npm run dev
    ```
 
 ## API TEST
-   go to post man api folder PostmanAPI
+   go to post man api folder PostmanAPI and import json to your post man
    Postman import after register and login please add token Bear to authenciation post
 ## Images
 

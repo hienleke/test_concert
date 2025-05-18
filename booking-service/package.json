@@ -11,6 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@concert/shared": "file:../shared",
     "bullmq": "^5.52.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -19,6 +20,7 @@
     "nodemailer": "^7.0.3"
   },
   "devDependencies": {
+      
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/node": "^20.10.5",
