@@ -13,8 +13,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@concert/shared": ["shared/dist"],
-      "@concert/shared/*": ["shared/dist/*"]
     }
   },
   "include": ["src/**/*"],

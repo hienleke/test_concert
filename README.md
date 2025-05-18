@@ -41,7 +41,7 @@ The system consists of the following microservices:
    cd test_concert
    ```
 
-2. Modify_ENV in each service have .env.example  and change file to .env file:
+2. Modify .ENV in each service have .env.example  and change file to .env file  :
    for password email : with gmail using app-password not regular password
 
 
@@ -66,12 +66,13 @@ The system consists of the following microservices:
    npm run dev
    npm run worker
    cd ../api-gateway
+   npm i
    npm run dev
    ```
 
 ## API TEST
    go to post man api folder PostmanAPI and import json to your post man
-   Postman import after register and login please add token Bear to authenciation post
+   Postman import after register and login please add token Bear after login to each service
 ## Images
 
 ### System design overview
