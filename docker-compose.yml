@@ -171,7 +171,7 @@ services:
       - SMTP_PORT=587
       - SMTP_SECURE=false
       - SMTP_USER=lekehien17105431@gmail.com
-      - SMTP_PASS=vkca plld hiuk pxnp
+      - SMTP_PASS=vkcha plled hiuxk pxbbvnp
     depends_on:
       - mongodb
       - redis

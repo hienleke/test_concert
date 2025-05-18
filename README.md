@@ -45,9 +45,10 @@ The system consists of the following microservices:
    for password email : with gmail using app-password not regular password
 
 
-3. build core module redis and shared module :
+3. build core shared module (this one for call redis stream):
    ```bash
    cd shared
+   npm i
    npm run build
    ```
 
@@ -76,6 +77,7 @@ The system consists of the following microservices:
 ## Images
 
 ### System design overview
+Using redis stream for durable make sure that we can get data we got issue on system and also have log4js for logging
 ![System design overview](images/System-design.png)
 
 ### Booking ticket flow
